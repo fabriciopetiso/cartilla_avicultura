@@ -62,7 +62,7 @@ partir siempre de los originales para evitar pérdida generacional.
 
 ## Licencia
 
-> **Pendiente de definir por los autores.** Para material educativo de este tipo
-> suele usarse una licencia Creative Commons (p. ej. CC BY-SA 4.0 o
-> CC BY-NC-SA 4.0). Definir y agregar un archivo `LICENSE` antes de difundir
-> ampliamente.
+Esta obra está licenciada bajo
+[Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.es).
+Podés compartirla y adaptarla, incluso comercialmente, citando la autoría y
+manteniendo la misma licencia. Texto completo en [`LICENSE`](LICENSE).
