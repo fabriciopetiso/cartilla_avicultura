@@ -1,0 +1,4 @@
+# Local-only backup of full-resolution image masters (pre-optimization).
+# Kept out of the repo so they aren't published by GitHub Pages or bloat clones.
+# Recover from history if ever deleted: git show 6afc381:assets/<file>
+/originals/
