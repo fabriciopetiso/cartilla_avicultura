@@ -51,18 +51,31 @@ a:hover{color:#1f3818}
 .fichas-cards{display:none}
 
 @media (max-width:560px){
-  /* Los pares se apilan: a 174 px de ancho las fotos verticales quedaban destruidas */
+  /* Todo a una sola columna: a 174 px de ancho las fotos quedaban destruidas */
   .duo{grid-template-columns:1fr;gap:4px}
-  .duo img{height:clamp(200px,54vw,260px)}
-  /* El par comparativo (Izq./Der.) se mantiene lado a lado: la comparación es el contenido */
-  .duo--cmp{grid-template-columns:1fr 1fr;gap:3px}
-  .duo--cmp img{height:clamp(180px,50vw,240px)}
+  .duo img{height:clamp(240px,68vw,320px)}
 
   /* La tabla de fichas desbordaba 52 px con scroll horizontal sin indicio visual */
   .fichas-tabla{display:none}
-  .fichas-cards{display:flex;flex-direction:column;gap:10px}
+  .fichas-cards{display:flex;flex-direction:column;gap:12px}
 
-  h2{font-size:clamp(22px,6.2vw,27px) !important}
+  /* Escala tipográfica del teléfono. Los tamaños del documento son todos
+     inline, así que se suben por selector de atributo sobre el valor literal.
+     El escritorio no se toca. */
+  [style*="font-size:11px"],[style*="font-size: 11px"]{font-size:13px !important}
+  [style*="font-size:12px"],[style*="font-size: 12px"]{font-size:14px !important}
+  [style*="font-size:13px"],[style*="font-size: 13px"]{font-size:15px !important}
+  [style*="font-size:14px"],[style*="font-size: 14px"]{font-size:16px !important}
+  [style*="font-size:15px"],[style*="font-size: 15px"]{font-size:17px !important}
+  [style*="font-size:16px"],[style*="font-size: 16px"]{font-size:18px !important}
+  [style*="font-size:17px"],[style*="font-size: 17px"]{font-size:19.5px !important}
+  [style*="font-size:18px"],[style*="font-size: 18px"]{font-size:20px !important}
+  [style*="font-size:19px"],[style*="font-size: 19px"]{font-size:22px !important}
+  [style*="font-size:27px"],[style*="font-size: 27px"]{font-size:30px !important}
+  h1{font-size:clamp(30px,8.4vw,36px) !important}
+  .prop-key{font-size:14px}
+  .prop{height:18px}
+  .prop--light{height:16px}
 }
 </style>
 </helmet>
@@ -157,11 +170,11 @@ a:hover{color:#1f3818}
       </div>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div class="duo duo--cmp">
+        <div class="duo">
           <img src="assets/img3.jpg" alt="Pollos doble pechuga en producción familiar">
           <img src="assets/img4.jpg" alt="Galpón de producción industrial de pollos">
         </div>
-        <figcaption style="font-size:13px;line-height:1.55;color:#7c766a"><em>Izq.</em> Pollos "doble pechuga" — el "pollito híbrido bb" de engorde en contexto de producción familiar. <em>Der.</em> Misma genética. Galpón de producción industrial.</figcaption>
+        <figcaption style="font-size:13px;line-height:1.55;color:#7c766a"><em>1)</em> Pollos "doble pechuga" — el "pollito híbrido bb" de engorde en contexto de producción familiar. <em>2)</em> Misma genética. Galpón de producción industrial.</figcaption>
       </figure>
 
       <div style="background:#fbf3df;border:1px solid #e7cf94;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
@@ -367,7 +380,7 @@ a:hover{color:#1f3818}
       <figure style="display:flex;flex-direction:column;gap:8px">
         <img src="assets/img17.jpg" alt="Proporción visual de ingredientes en carretilla" style="width:100%;background:#fff;border:1px solid #e4dac6">
         <img src="assets/img18.jpg" alt="Gráfico de proporciones de sal mineralizada" style="width:100%;background:#fff;border:1px solid #e4dac6">
-        <figcaption style="font-size:13px;line-height:1.55;color:#7c766a"><em>Izq.</em> Proporción visual de los ingredientes en carretilla. <em>Der.</em> Gráfico de proporciones por 9 kg de mezcla.</figcaption>
+        <figcaption style="font-size:13px;line-height:1.55;color:#7c766a"><em>1)</em> Proporción visual de los ingredientes en carretilla. <em>2)</em> Gráfico de proporciones por 9 kg de mezcla.</figcaption>
       </figure>
 
       <div style="background:#fff;border-top:3px solid #c05a32;padding:18px 20px;display:flex;flex-direction:column;gap:7px">
