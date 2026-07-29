@@ -91,6 +91,7 @@ a:hover{color:#1f3818}
     <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:16px">
       <p style="font-size:17px;line-height:1.7;color:#3f4437;text-wrap:pretty">Estás accediendo a material y conocimiento elaborado por la CTO, una organización rural del Valle de Traslasierra.</p>
       <p style="font-size:17px;line-height:1.7;color:#3f4437;text-wrap:pretty">Comunicate con nosotrxs con comentarios, sugerencias o preguntas a <a href="mailto:ctotraslasierra@gmail.com" style="color:#c05a32;text-decoration:underline;text-decoration-color:#e0a98f;text-underline-offset:3px;word-break:break-word">ctotraslasierra@gmail.com</a></p>
+      <p style="font-size:16px;line-height:1.7;color:#5d5340;text-wrap:pretty;background:#f4efe1;border-left:3px solid #9fce5f;padding:12px 14px">O tocá <strong style="color:#1f3818">nuestro logo</strong> en cualquier momento de la lectura para escribirnos desde la cartilla.</p>
       <button id="aviso-ok" type="button" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Entrar a la cartilla</span><span style="color:#9fce5f">→</span></button>
     </div>
   </div>
@@ -98,9 +99,42 @@ a:hover{color:#1f3818}
 
 
 
-<a href="#inicio" aria-label="CTO Traslasierra — volver al inicio" title="CTO Traslasierra" style="position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:80;width:clamp(52px,13vw,62px);height:clamp(52px,13vw,62px);border-radius:50%;background:rgba(255,255,255,.94);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);box-shadow:0 4px 18px rgba(40,30,10,.24);display:flex;align-items:center;justify-content:center;transition:transform .2s" style-hover="transform:scale(1.06)">
+<div id="consulta" role="dialog" aria-modal="true" aria-labelledby="consulta-t" style="display:none;position:fixed;inset:0;z-index:210;background:rgba(24,38,18,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:20px;overflow-y:auto">
+  <form id="consulta-form" style="background:#fdfaf2;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(20,26,14,.4);display:flex;flex-direction:column;margin:auto">
+    <div style="background:#1f3818;padding:20px 24px;display:flex;align-items:center;gap:14px">
+      <img src="assets/logo-white.png" alt="" style="width:48px;height:48px;flex-shrink:0;object-fit:contain">
+      <p id="consulta-t" style="font-family:'Bitter',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.3;flex:1">Escribinos tu consulta</p>
+      <button id="consulta-x" type="button" aria-label="Cerrar" style="background:none;border:none;color:rgba(255,255,255,.7);font-size:24px;line-height:1;cursor:pointer;padding:4px 2px;min-width:32px;min-height:32px">×</button>
+    </div>
+    <div style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px">
+      <p style="font-size:15px;line-height:1.6;color:#5d5340;text-wrap:pretty">Contanos tu comentario, sugerencia o pregunta. Se abrirá tu aplicación de correo con el mensaje ya armado para enviarnos.</p>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Nombre</span>
+        <input id="c-nombre" name="nombre" type="text" required autocomplete="name" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Mail</span>
+        <input id="c-mail" name="mail" type="email" required autocomplete="email" inputmode="email" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Comentario o pregunta</span>
+        <textarea id="c-texto" name="texto" required rows="5" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;line-height:1.6;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;width:100%;resize:vertical"></textarea>
+      </label>
+
+      <p id="consulta-error" role="alert" style="display:none;font-size:15px;line-height:1.5;color:#c05a32"></p>
+
+      <button type="submit" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Escribir el mensaje</span><span style="color:#9fce5f">→</span></button>
+      <p style="font-size:13px;line-height:1.55;color:#8a8475">También podés escribirnos directo a <a href="mailto:ctotraslasierra@gmail.com" style="color:#c05a32;text-decoration:underline;text-decoration-color:#e0a98f;text-underline-offset:2px;word-break:break-word">ctotraslasierra@gmail.com</a></p>
+    </div>
+  </form>
+</div>
+
+<button id="logo-consulta" type="button" aria-label="Escribinos una consulta a CTO Traslasierra" title="Escribinos una consulta" style="position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:80;width:clamp(52px,13vw,62px);height:clamp(52px,13vw,62px);border:none;padding:0;cursor:pointer;border-radius:50%;background:rgba(255,255,255,.94);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);box-shadow:0 4px 18px rgba(40,30,10,.24);display:flex;align-items:center;justify-content:center;transition:transform .2s">
   <img src="assets/logo-green.png" alt="" style="width:78%;height:78%;object-fit:contain">
-</a>
+</button>
 
 <div style="max-width:1080px;margin:0 auto;background:#fdfaf2;box-shadow:0 0 60px rgba(40,34,20,.14)">
 
@@ -867,6 +901,57 @@ class Component extends DCLogic {
       aviso.addEventListener('click', (e) => { if (e.target === aviso) close(); });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && aviso.style.display !== 'none') close();
+      });
+    }
+
+    // Cuadro de consulta: se abre desde el logo flotante. El sitio es estático,
+    // así que el envío se delega a la app de correo del visitante vía mailto:
+    // ningún dato sale de la página por su cuenta.
+    const consulta = document.getElementById('consulta');
+    const abrir = document.getElementById('logo-consulta');
+    if (consulta && abrir) {
+      const form = document.getElementById('consulta-form');
+      const error = document.getElementById('consulta-error');
+      let previo = null;
+
+      const cerrar = () => {
+        consulta.style.display = 'none';
+        if (error) error.style.display = 'none';
+        if (previo && previo.focus) previo.focus();
+      };
+      const abrirModal = () => {
+        previo = document.activeElement;
+        consulta.style.display = 'flex';
+        const primero = document.getElementById('c-nombre');
+        if (primero) primero.focus();
+      };
+
+      abrir.addEventListener('click', abrirModal);
+      const x = document.getElementById('consulta-x');
+      if (x) x.addEventListener('click', cerrar);
+      consulta.addEventListener('click', (e) => { if (e.target === consulta) cerrar(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && consulta.style.display !== 'none') cerrar();
+      });
+
+      if (form) form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = (document.getElementById('c-nombre').value || '').trim();
+        const mail = (document.getElementById('c-mail').value || '').trim();
+        const texto = (document.getElementById('c-texto').value || '').trim();
+        if (!nombre || !mail || !texto) {
+          if (error) {
+            error.textContent = 'Completá los tres campos para poder escribirnos.';
+            error.style.display = 'block';
+          }
+          return;
+        }
+        if (error) error.style.display = 'none';
+        const asunto = 'Consulta desde la cartilla avícola';
+        const cuerpo = 'Nombre: ' + nombre + '\nMail: ' + mail + '\n\n' + texto + '\n';
+        window.location.href = 'mailto:ctotraslasierra@gmail.com'
+          + '?subject=' + encodeURIComponent(asunto)
+          + '&body=' + encodeURIComponent(cuerpo);
       });
     }
 
