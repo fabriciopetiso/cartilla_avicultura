@@ -34,6 +34,36 @@ img{display:block;max-width:100%}
 ::selection{background:#cfe0b8}
 a{color:#c05a32}
 a:hover{color:#1f3818}
+
+/* --- Pares de imágenes ------------------------------------------------ */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.duo img{width:100%;height:clamp(170px,24vw,300px);object-fit:cover}
+
+/* --- Barra de proporción (composición de las fórmulas) ---------------- */
+.prop{display:flex;width:100%;height:14px;overflow:hidden;background:rgba(255,255,255,.1)}
+.prop span{display:block;height:100%}
+.prop--light{background:#ece3d2;height:12px}
+.prop-key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;line-height:1.4}
+.prop-key span{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.prop-key i{width:9px;height:9px;flex:0 0 9px;display:block}
+
+/* --- Fichas: tabla en escritorio, tarjetas en teléfono ---------------- */
+.fichas-cards{display:none}
+
+@media (max-width:560px){
+  /* Los pares se apilan: a 174 px de ancho las fotos verticales quedaban destruidas */
+  .duo{grid-template-columns:1fr;gap:4px}
+  .duo img{height:clamp(200px,54vw,260px)}
+  /* El par comparativo (Izq./Der.) se mantiene lado a lado: la comparación es el contenido */
+  .duo--cmp{grid-template-columns:1fr 1fr;gap:3px}
+  .duo--cmp img{height:clamp(180px,50vw,240px)}
+
+  /* La tabla de fichas desbordaba 52 px con scroll horizontal sin indicio visual */
+  .fichas-tabla{display:none}
+  .fichas-cards{display:flex;flex-direction:column;gap:10px}
+
+  h2{font-size:clamp(22px,6.2vw,27px) !important}
+}
 </style>
 </helmet>
 
@@ -127,9 +157,9 @@ a:hover{color:#1f3818}
       </div>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/img3.jpg" alt="Pollos doble pechuga en producción familiar" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/img4.jpg" alt="Galpón de producción industrial de pollos" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
+        <div class="duo duo--cmp">
+          <img src="assets/img3.jpg" alt="Pollos doble pechuga en producción familiar">
+          <img src="assets/img4.jpg" alt="Galpón de producción industrial de pollos">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a"><em>Izq.</em> Pollos "doble pechuga" — el "pollito híbrido bb" de engorde en contexto de producción familiar. <em>Der.</em> Misma genética. Galpón de producción industrial.</figcaption>
       </figure>
@@ -144,9 +174,9 @@ a:hover{color:#1f3818}
       <p style="font-size:17px;line-height:1.72;color:#3f4437;text-wrap:pretty">Un ejemplo claro: cuando por la gripe aviar se prohibió la circulación de aves vivas en nuestro país, esa dependencia genética dejó a la mayoría de la AFCI sin acceso al "bb híbrido" ni a las ponedoras coloradas. Mientras tanto, los grandes concentrados agroindustriales consiguieron protocolos sanitarios para ingresar huevos fértiles y pollitos recién nacidos por vía aérea, y así sostener su cadena genética.</p>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/img5.jpg" alt="Gallinero de la CTO Traslasierra" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/img6.jpg" alt="Gallinero campo — aves sueltas" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
+        <div class="duo">
+          <img src="assets/img5.jpg" alt="Gallinero de la CTO Traslasierra">
+          <img src="assets/img6.jpg" alt="Gallinero campo — aves sueltas">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a">Gallineros de la Cooperativa El Espinillo, Valle de Traslasierra. Familias productoras vecinas organizadas en la cooperativa. .</figcaption>
       </figure>
@@ -198,9 +228,9 @@ a:hover{color:#1f3818}
       </div>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/img9.jpg" alt="Gallinas Plymouth Rock barrado" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/img10.jpg" alt="Gallinas Negra INTA al aire libre" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
+        <div class="duo">
+          <img src="assets/img9.jpg" alt="Gallinas Plymouth Rock barrado">
+          <img src="assets/img10.jpg" alt="Gallinas Negra INTA al aire libre">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a">Transferencia de genética y manejo productivo desde el INTA Pergamino a la CTO. Planteles de reproductores para Negra INTA.</figcaption>
       </figure>
@@ -293,9 +323,9 @@ a:hover{color:#1f3818}
       </div>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/img14.jpg" alt="Tachos para calcinado de huesos" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/img15.jpg" alt="Quema de huesos en horno artesanal" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
+        <div class="duo">
+          <img src="assets/img14.jpg" alt="Tachos para calcinado de huesos">
+          <img src="assets/img15.jpg" alt="Quema de huesos en horno artesanal">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a">Tachos para calcinado de huesos, fábrica CTO. Quema de huesos "viejos" recolectados en el campo.</figcaption>
       </figure>
@@ -363,9 +393,9 @@ a:hover{color:#1f3818}
       </div>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/img20.jpg" alt="Productora mezclando el probiótico sólido" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/img21.jpg" alt="Probiótico fermentando en tambor" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
+        <div class="duo">
+          <img src="assets/img20.jpg" alt="Productora mezclando el probiótico sólido">
+          <img src="assets/img21.jpg" alt="Probiótico fermentando en tambor">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a">Elaboración del probiótico sólido. Mantillo de bosque nativo más maiz, fermentación con azucar.</figcaption>
       </figure>
@@ -445,6 +475,11 @@ a:hover{color:#1f3818}
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.18)"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Maíz</span><span style="font-size:13px;color:rgba(255,255,255,.55)">energía</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">70 kg</span></div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.18)"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Expeller de soja</span><span style="font-size:13px;color:rgba(255,255,255,.55)">proteína</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">26 kg</span></div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Sal mineralizada</span><span style="font-size:13px;color:rgba(255,255,255,.55)">minerales</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">4 kg</span></div>
+      
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:4px;border-top:1px solid rgba(255,255,255,.18)">
+          <div class="prop" role="img" aria-label="Composición: Maíz 70 kg, Expeller de soja 26 kg, Sal mineralizada 4 kg por cada 100 kg"><span style="width:70%;background:#9fce5f"></span><span style="width:26%;background:#e8a33f"></span><span style="width:4%;background:#e5ddc6"></span></div>
+          <div class="prop-key" style="color:rgba(255,255,255,.72)"><span><i style="background:#9fce5f"></i>Maíz 70 kg</span><span><i style="background:#e8a33f"></i>Expeller de soja 26 kg</span><span><i style="background:#e5ddc6"></i>Sal mineralizada 4 kg</span></div>
+        </div>
       </div>
       <p style="font-size:14px;line-height:1.6;color:#8a8475;font-style:italic">La misma base alimenta a las ponedoras y a las reproductoras que dan los huevos fértiles para <a href="https://libreincu.altermundi.net/" target="_blank" rel="noopener" style="color:#c05a32;text-decoration:underline;text-decoration-color:#e0a98f;text-underline-offset:2px">LibreIncu</a>.</p>
 
@@ -487,6 +522,11 @@ a:hover{color:#1f3818}
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.18)"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Maíz</span><span style="font-size:13px;color:rgba(255,255,255,.55)">energía</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">60 kg</span></div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.18)"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Expeller de soja</span><span style="font-size:13px;color:rgba(255,255,255,.55)">proteína</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">37 kg</span></div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Sal mineralizada</span><span style="font-size:13px;color:rgba(255,255,255,.55)">minerales</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">3 kg</span></div>
+      
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:4px;border-top:1px solid rgba(255,255,255,.18)">
+          <div class="prop" role="img" aria-label="Composición: Maíz 60 kg, Expeller de soja 37 kg, Sal mineralizada 3 kg por cada 100 kg"><span style="width:60%;background:#9fce5f"></span><span style="width:37%;background:#e8a33f"></span><span style="width:3%;background:#e5ddc6"></span></div>
+          <div class="prop-key" style="color:rgba(255,255,255,.72)"><span><i style="background:#9fce5f"></i>Maíz 60 kg</span><span><i style="background:#e8a33f"></i>Expeller de soja 37 kg</span><span><i style="background:#e5ddc6"></i>Sal mineralizada 3 kg</span></div>
+        </div>
       </div>
 
       <h3 style="font-family:'Bitter',serif;font-size:19px;font-weight:700;line-height:1.3;color:#c05a32;margin-top:6px">Terminador <span style="font-weight:400;color:#8a8475;font-size:14px">· por 100 kg de balanceado</span></h3>
@@ -494,6 +534,11 @@ a:hover{color:#1f3818}
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.18)"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Maíz</span><span style="font-size:13px;color:rgba(255,255,255,.55)">energía</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">71 kg</span></div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.18)"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Expeller de soja</span><span style="font-size:13px;color:rgba(255,255,255,.55)">proteína</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">27 kg</span></div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="display:flex;flex-direction:column"><span style="font-size:16px;color:#fff">Sal mineralizada</span><span style="font-size:13px;color:rgba(255,255,255,.55)">minerales</span></span><span style="font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#9fce5f;white-space:nowrap;font-variant-numeric:tabular-nums">2 kg</span></div>
+      
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:4px;border-top:1px solid rgba(255,255,255,.18)">
+          <div class="prop" role="img" aria-label="Composición: Maíz 71 kg, Expeller de soja 27 kg, Sal mineralizada 2 kg por cada 100 kg"><span style="width:71%;background:#9fce5f"></span><span style="width:27%;background:#e8a33f"></span><span style="width:2%;background:#e5ddc6"></span></div>
+          <div class="prop-key" style="color:rgba(255,255,255,.72)"><span><i style="background:#9fce5f"></i>Maíz 71 kg</span><span><i style="background:#e8a33f"></i>Expeller de soja 27 kg</span><span><i style="background:#e5ddc6"></i>Sal mineralizada 2 kg</span></div>
+        </div>
       </div>
 
       <div style="background:#fff;border-top:3px solid #c05a32;padding:18px 20px;display:flex;flex-direction:column;gap:7px">
@@ -505,9 +550,9 @@ a:hover{color:#1f3818}
       <p style="font-size:17px;line-height:1.72;color:#3f4437;text-wrap:pretty">En las evaluaciones a campo estamos engordando tres genéticas en paralelo: Cornish puro, la cruza Cornish × criolla pesada y blanco industrial como testigo de comparación. El terminador está en su primera prueba y todavía no tenemos resultados cerrados. Medimos peso a faena, conversión y mortalidad para definir la fórmula y el momento de faena de cada genética.</p>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/cornish1.jpg" alt="Aves de la cruza Cornish a campo, en patio abierto" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/cornish2.jpg" alt="Lote de engorde Cornish alimentándose en el comedero" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
+        <div class="duo">
+          <img src="assets/cornish1.jpg" alt="Aves de la cruza Cornish a campo, en patio abierto">
+          <img src="assets/cornish2.jpg" alt="Lote de engorde Cornish alimentándose en el comedero">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a">Lotes de engorde de la cruza Cornish × criollas pesadas en patio abierto, durante la evaluación a campo.</figcaption>
       </figure>
@@ -577,7 +622,7 @@ a:hover{color:#1f3818}
       </div>
 
       <h3 style="font-family:'Bitter',serif;font-size:19px;font-weight:700;line-height:1.3;color:#c05a32;margin-top:4px">Fichas de fórmulas <span style="font-weight:400;color:#8a8475;font-size:14px">· por 100 kg de balanceado</span></h3>
-      <div style="overflow-x:auto;background:#fff;border:1px solid #e4dac6">
+      <div class="fichas-tabla" style="overflow-x:auto;background:#fff;border:1px solid #e4dac6">
         <table style="width:100%;border-collapse:collapse;min-width:400px">
           <thead>
             <tr>
@@ -594,6 +639,28 @@ a:hover{color:#1f3818}
             <tr><td style="padding:12px;border-top:1px solid #ece3d2;font-family:'Bitter',serif;font-size:15px;font-weight:700;color:#1f3818">Reproductora</td><td style="padding:12px;border-top:1px solid #ece3d2;text-align:right;font-size:15px;color:#3f4437;font-variant-numeric:tabular-nums">70 kg</td><td style="padding:12px;border-top:1px solid #ece3d2;text-align:right;font-size:15px;color:#3f4437;font-variant-numeric:tabular-nums">26 kg</td><td style="padding:12px;border-top:1px solid #ece3d2;text-align:right;font-size:15px;color:#3f4437;font-variant-numeric:tabular-nums">4 kg</td></tr>
           </tbody>
         </table>
+      </div>
+      <div class="fichas-cards">
+        <div style="background:#fff;border:1px solid #e4dac6;padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+          <p style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#1f3818">Iniciador</p>
+          <div class="prop prop--light" role="img" aria-label="Iniciador: Maíz 60 kg, Expeller soja 37 kg, Sal mineral. 3 kg por cada 100 kg"><span style="width:60%;background:#6fa83a"></span><span style="width:37%;background:#c07f22"></span><span style="width:3%;background:#8f8676"></span></div>
+          <div class="prop-key" style="color:#5d5340"><span><i style="background:#6fa83a"></i>Maíz 60 kg</span><span><i style="background:#c07f22"></i>Expeller soja 37 kg</span><span><i style="background:#8f8676"></i>Sal mineral. 3 kg</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid #e4dac6;padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+          <p style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#1f3818">Terminador</p>
+          <div class="prop prop--light" role="img" aria-label="Terminador: Maíz 71 kg, Expeller soja 27 kg, Sal mineral. 2 kg por cada 100 kg"><span style="width:71%;background:#6fa83a"></span><span style="width:27%;background:#c07f22"></span><span style="width:2%;background:#8f8676"></span></div>
+          <div class="prop-key" style="color:#5d5340"><span><i style="background:#6fa83a"></i>Maíz 71 kg</span><span><i style="background:#c07f22"></i>Expeller soja 27 kg</span><span><i style="background:#8f8676"></i>Sal mineral. 2 kg</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid #e4dac6;padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+          <p style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#1f3818">Ponedora</p>
+          <div class="prop prop--light" role="img" aria-label="Ponedora: Maíz 70 kg, Expeller soja 26 kg, Sal mineral. 4 kg por cada 100 kg"><span style="width:70%;background:#6fa83a"></span><span style="width:26%;background:#c07f22"></span><span style="width:4%;background:#8f8676"></span></div>
+          <div class="prop-key" style="color:#5d5340"><span><i style="background:#6fa83a"></i>Maíz 70 kg</span><span><i style="background:#c07f22"></i>Expeller soja 26 kg</span><span><i style="background:#8f8676"></i>Sal mineral. 4 kg</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid #e4dac6;padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+          <p style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#1f3818">Reproductora</p>
+          <div class="prop prop--light" role="img" aria-label="Reproductora: Maíz 70 kg, Expeller soja 26 kg, Sal mineral. 4 kg por cada 100 kg"><span style="width:70%;background:#6fa83a"></span><span style="width:26%;background:#c07f22"></span><span style="width:4%;background:#8f8676"></span></div>
+          <div class="prop-key" style="color:#5d5340"><span><i style="background:#6fa83a"></i>Maíz 70 kg</span><span><i style="background:#c07f22"></i>Expeller soja 26 kg</span><span><i style="background:#8f8676"></i>Sal mineral. 4 kg</span></div>
+        </div>
       </div>
 
       <div style="background:#fff;border:1px solid #e4dac6;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
@@ -629,9 +696,9 @@ a:hover{color:#1f3818}
       </div>
 
       <figure style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <img src="assets/img30.jpg" alt="Incubadora LibreIncu con pollitos negros" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover">
-          <img src="assets/img31.jpg" alt="Incubadora LibreIncu con huevos marcados" style="width:100%;height:clamp(170px,24vw,300px);object-fit:cover;object-position:center 26%">
+        <div class="duo">
+          <img src="assets/img30.jpg" alt="Incubadora LibreIncu con pollitos negros">
+          <img src="assets/img31.jpg" alt="Incubadora LibreIncu con huevos marcados" style="object-position:center 26%">
         </div>
         <figcaption style="font-size:13px;line-height:1.55;color:#7c766a"><em>1)</em> Incubadoras de CTO en Traslasierra, Córdoba. <em>2)</em> Reproducción de genética seleccionada en comunidades (ciclo criollas + Cornish). Objetivo engorde.</figcaption>
       </figure>
