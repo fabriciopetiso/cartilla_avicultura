@@ -82,8 +82,8 @@ a:hover{color:#1f3818}
 
 <div id="progbar" style="position:fixed;top:0;left:0;height:3px;width:0;background:#c05a32;z-index:90;transition:width .1s"></div>
 
-<div id="aviso" role="dialog" aria-modal="true" aria-labelledby="aviso-t" style="position:fixed;inset:0;z-index:200;background:rgba(24,38,18,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px">
-  <div style="background:#fdfaf2;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(20,26,14,.4);display:flex;flex-direction:column">
+<div id="aviso" role="dialog" aria-modal="true" aria-labelledby="aviso-t" style="position:fixed;inset:0;z-index:200;background:rgba(24,38,18,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
+  <div style="background:#fdfaf2;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(20,26,14,.4);display:flex;flex-direction:column;margin:auto">
     <div style="background:#1f3818;padding:20px 24px;display:flex;align-items:center;gap:14px">
       <img src="assets/logo-white.png" alt="" style="width:48px;height:48px;flex-shrink:0;object-fit:contain">
       <p id="aviso-t" style="font-family:'Bitter',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.3">Comunidad Trabajo y Organización · Traslasierra</p>
@@ -91,7 +91,7 @@ a:hover{color:#1f3818}
     <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:16px">
       <p style="font-size:17px;line-height:1.7;color:#3f4437;text-wrap:pretty">Estás accediendo a material y conocimiento elaborado por la CTO, una organización rural del Valle de Traslasierra.</p>
       <p style="font-size:17px;line-height:1.7;color:#3f4437;text-wrap:pretty">Comunicate con nosotrxs con comentarios, sugerencias o preguntas a <a href="mailto:ctotraslasierra@gmail.com" style="color:#c05a32;text-decoration:underline;text-decoration-color:#e0a98f;text-underline-offset:3px;word-break:break-word">ctotraslasierra@gmail.com</a></p>
-      <p style="font-size:16px;line-height:1.7;color:#5d5340;text-wrap:pretty;background:#f4efe1;border-left:3px solid #9fce5f;padding:12px 14px">O tocá <strong style="color:#1f3818">nuestro logo</strong> en cualquier momento de la lectura para escribirnos desde la cartilla.</p>
+      <p style="font-size:16px;line-height:1.7;color:#5d5340;text-wrap:pretty;background:#f4efe1;border-left:3px solid #9fce5f;padding:12px 14px">Para escribirnos, tocá el <strong style="color:#1f3818">logo de CTO</strong> que queda abajo a la derecha, en cualquier momento de la lectura. O <button id="aviso-consulta" type="button" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;font-weight:700;color:#c05a32;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:#e0a98f;text-underline-offset:3px">hacelo ahora</button>.</p>
       <button id="aviso-ok" type="button" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Entrar a la cartilla</span><span style="color:#9fce5f">→</span></button>
     </div>
   </div>
@@ -927,6 +927,20 @@ class Component extends DCLogic {
       };
 
       abrir.addEventListener('click', abrirModal);
+
+      // El aviso de bienvenida es aria-modal y su fondo cubre toda la pantalla,
+      // así que mientras está abierto el logo no se puede tocar. Por eso la
+      // acción también vive dentro del aviso.
+      const desdeAviso = document.getElementById('aviso-consulta');
+      if (desdeAviso) desdeAviso.addEventListener('click', () => {
+        const av = document.getElementById('aviso');
+        if (av) {
+          av.style.display = 'none';
+          try { localStorage.setItem('cto-aviso-visto', '1'); } catch (e) {}
+        }
+        abrirModal();
+      });
+
       const x = document.getElementById('consulta-x');
       if (x) x.addEventListener('click', cerrar);
       consulta.addEventListener('click', (e) => { if (e.target === consulta) cerrar(); });
