@@ -106,8 +106,8 @@ a:hover{color:#1f3818}
       <p id="consulta-t" style="font-family:'Bitter',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.3;flex:1">Escribinos tu consulta</p>
       <button id="consulta-x" type="button" aria-label="Cerrar" style="background:none;border:none;color:rgba(255,255,255,.7);font-size:24px;line-height:1;cursor:pointer;padding:4px 2px;min-width:32px;min-height:32px">×</button>
     </div>
-    <div style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px">
-      <p style="font-size:15px;line-height:1.6;color:#5d5340;text-wrap:pretty">Contanos tu comentario, sugerencia o pregunta. Se abrirá tu aplicación de correo con el mensaje ya armado para enviarnos.</p>
+    <div id="consulta-campos" style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px">
+      <p style="font-size:15px;line-height:1.6;color:#5d5340;text-wrap:pretty">Contanos tu comentario, sugerencia o pregunta. Lo recibimos acá mismo, sin salir de la página.</p>
 
       <label style="display:flex;flex-direction:column;gap:5px">
         <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Nombre</span>
@@ -126,8 +126,52 @@ a:hover{color:#1f3818}
 
       <p id="consulta-error" role="alert" style="display:none;font-size:15px;line-height:1.5;color:#c05a32"></p>
 
-      <button type="submit" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Escribir el mensaje</span><span style="color:#9fce5f">→</span></button>
+      <button id="consulta-enviar" type="submit" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Enviar el mensaje</span><span style="color:#9fce5f">→</span></button>
       <p style="font-size:13px;line-height:1.55;color:#8a8475">También podés escribirnos directo a <a href="mailto:ctotraslasierra@gmail.com" style="color:#c05a32;text-decoration:underline;text-decoration-color:#e0a98f;text-underline-offset:2px;word-break:break-word">ctotraslasierra@gmail.com</a></p>
+    </div>
+
+    <div id="consulta-gracias" style="display:none;padding:20px 24px 24px;flex-direction:column;gap:14px">
+      <p style="font-family:'Bitter',serif;font-size:18px;font-weight:700;color:#1f3818;line-height:1.35">Recibimos tu mensaje</p>
+      <p style="font-size:15px;line-height:1.6;color:#5d5340;text-wrap:pretty">Gracias por escribirnos. Te respondemos al correo que dejaste.</p>
+      <button id="consulta-listo" type="button" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Volver a la cartilla</span><span style="color:#9fce5f">→</span></button>
+    </div>
+  </form>
+</div>
+
+<div id="registro" role="dialog" aria-modal="true" aria-labelledby="registro-t" style="display:none;position:fixed;inset:0;z-index:220;background:rgba(24,38,18,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:20px;overflow-y:auto">
+  <form id="registro-form" style="background:#fdfaf2;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(20,26,14,.4);display:flex;flex-direction:column;margin:auto">
+    <div style="background:#1f3818;padding:20px 24px;display:flex;align-items:center;gap:14px">
+      <img src="assets/logo-white.png" alt="" style="width:48px;height:48px;flex-shrink:0;object-fit:contain">
+      <p id="registro-t" style="font-family:'Bitter',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.3;flex:1">Antes de descargar</p>
+      <button id="registro-x" type="button" aria-label="Cerrar" style="background:none;border:none;color:rgba(255,255,255,.7);font-size:24px;line-height:1;cursor:pointer;padding:4px 2px;min-width:32px;min-height:32px">×</button>
+    </div>
+    <div id="registro-campos" style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px">
+      <p style="font-size:15px;line-height:1.6;color:#5d5340;text-wrap:pretty">Contanos quién sos. Nos sirve para saber a dónde llega el material y con quién seguir trabajando. Con esto habilitás las tres descargas.</p>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Nombre</span>
+        <input id="r-nombre" name="nombre" type="text" required autocomplete="name" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Mail</span>
+        <input id="r-mail" name="mail" type="email" required autocomplete="email" inputmode="email" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Localidad</span>
+        <input id="r-localidad" name="localidad" type="text" required autocomplete="address-level2" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Organización o actividad <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#a09a8c">— opcional</span></span>
+        <input id="r-organizacion" name="organizacion" type="text" autocomplete="organization" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <p id="registro-error" role="alert" style="display:none;font-size:15px;line-height:1.5;color:#c05a32"></p>
+
+      <button id="registro-enviar" type="submit" style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:52px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Habilitar las descargas</span><span style="color:#9fce5f">→</span></button>
+      <p style="font-size:13px;line-height:1.55;color:#8a8475">Usamos estos datos solo para el seguimiento del material. No los compartimos con nadie.</p>
     </div>
   </form>
 </div>
@@ -180,11 +224,11 @@ a:hover{color:#1f3818}
 
       <div style="display:flex;flex-direction:column;gap:10px">
         <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c05a32;font-weight:800">Descargas</p>
-        <p style="font-size:15px;line-height:1.68;color:#5d5a4f;text-wrap:pretty">Aquí dejamos disponibles un .pdf con el mismo contenido que este página y las dos presentaciones que sirven como resumen de todo el material.</p>
+        <p style="font-size:15px;line-height:1.68;color:#5d5a4f;text-wrap:pretty">Aquí dejamos disponibles un .pdf con el mismo contenido que esta página y las dos presentaciones que sirven como resumen de todo el material. La primera vez te pedimos un registro breve; después las tres descargas quedan habilitadas.</p>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <a href="cartilla-agroecologica-imprimible-v1.html.pdf" download style="display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#1f3818;color:#fff;font-family:'Bitter',serif;font-weight:700;font-size:15px;padding:14px 16px;min-height:52px"><span>Descargar versión en PDF completa</span><span style="color:#9fce5f;font-size:12px;letter-spacing:.1em">PDF</span></a>
-          <a href="Presentacion-Dietas-v3.pptx" download style="display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#fff;border:1.5px solid #1f3818;color:#1f3818;font-family:'Bitter',serif;font-weight:700;font-size:15px;padding:14px 16px;min-height:52px"><span>Presentación Dietas Agroecológicas</span><span style="color:#8a8475;font-size:12px;letter-spacing:.1em">PPTX</span></a>
-          <a href="Presentacion-Anexo-Reproductoras-v4.pptx" download style="display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#fff;border:1.5px solid #1f3818;color:#1f3818;font-family:'Bitter',serif;font-weight:700;font-size:15px;padding:14px 16px;min-height:52px"><span>Guía Reproductores</span><span style="color:#8a8475;font-size:12px;letter-spacing:.1em">PPTX</span></a>
+          <a href="cartilla-agroecologica-imprimible-v1.html.pdf" download data-descarga="Cartilla completa (PDF)" style="display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#1f3818;color:#fff;font-family:'Bitter',serif;font-weight:700;font-size:15px;padding:14px 16px;min-height:52px"><span>Descargar versión en PDF completa</span><span style="color:#9fce5f;font-size:12px;letter-spacing:.1em">PDF</span></a>
+          <a href="Presentacion-Dietas-v3.pptx" download data-descarga="Presentación Dietas Agroecológicas" style="display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#fff;border:1.5px solid #1f3818;color:#1f3818;font-family:'Bitter',serif;font-weight:700;font-size:15px;padding:14px 16px;min-height:52px"><span>Presentación Dietas Agroecológicas</span><span style="color:#8a8475;font-size:12px;letter-spacing:.1em">PPTX</span></a>
+          <a href="Presentacion-Anexo-Reproductoras-v4.pptx" download data-descarga="Guía Reproductores" style="display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#fff;border:1.5px solid #1f3818;color:#1f3818;font-family:'Bitter',serif;font-weight:700;font-size:15px;padding:14px 16px;min-height:52px"><span>Guía Reproductores</span><span style="color:#8a8475;font-size:12px;letter-spacing:.1em">PPTX</span></a>
         </div>
       </div>
 
@@ -886,6 +930,37 @@ a:hover{color:#1f3818}
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420}}">
 class Component extends DCLogic {
   componentDidMount() {
+    // El sitio es estático y no tiene servidor propio. Los registros de
+    // descarga y las consultas van a una aplicación web de Apps Script que
+    // escribe en una planilla de CTO. Despliegue: apps-script/README.md
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxePGNWtztTsAxNd-HjElKtdDY1Gk6PcYUzIf-95aUO-uA666eOUNm_D5kAA7YcgARU3Q/exec';
+
+    // Se manda como text/plain a propósito: así el navegador lo trata como
+    // petición simple y no dispara el preflight CORS, que la aplicación web de
+    // Apps Script no sabe responder. La contrapartida es que la respuesta es
+    // opaca: sabemos que salió, no que se guardó.
+    const enviar = (datos) => {
+      if (ENDPOINT.indexOf('http') !== 0) return false;
+      const cuerpo = JSON.stringify(datos);
+      try {
+        if (navigator.sendBeacon) {
+          const blob = new Blob([cuerpo], { type: 'text/plain;charset=utf-8' });
+          if (navigator.sendBeacon(ENDPOINT, blob)) return true;
+        }
+      } catch (e) {}
+      try {
+        fetch(ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: cuerpo
+        }).catch(() => {});
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+
     const aviso = document.getElementById('aviso');
     if (aviso) {
       const KEY = 'cto-aviso-visto';
@@ -904,9 +979,7 @@ class Component extends DCLogic {
       });
     }
 
-    // Cuadro de consulta: se abre desde el logo flotante. El sitio es estático,
-    // así que el envío se delega a la app de correo del visitante vía mailto:
-    // ningún dato sale de la página por su cuenta.
+    // Cuadro de consulta: se abre desde el logo flotante.
     const consulta = document.getElementById('consulta');
     const abrir = document.getElementById('logo-consulta');
     if (consulta && abrir) {
@@ -914,9 +987,15 @@ class Component extends DCLogic {
       const error = document.getElementById('consulta-error');
       let previo = null;
 
+      const campos = document.getElementById('consulta-campos');
+      const gracias = document.getElementById('consulta-gracias');
+
       const cerrar = () => {
         consulta.style.display = 'none';
         if (error) error.style.display = 'none';
+        // Al reabrirlo se vuelve a ver el formulario, no el agradecimiento.
+        if (campos) campos.style.display = 'flex';
+        if (gracias) gracias.style.display = 'none';
         if (previo && previo.focus) previo.focus();
       };
       const abrirModal = () => {
@@ -948,6 +1027,9 @@ class Component extends DCLogic {
         if (e.key === 'Escape' && consulta.style.display !== 'none') cerrar();
       });
 
+      const listo = document.getElementById('consulta-listo');
+      if (listo) listo.addEventListener('click', cerrar);
+
       if (form) form.addEventListener('submit', (e) => {
         e.preventDefault();
         const nombre = (document.getElementById('c-nombre').value || '').trim();
@@ -960,12 +1042,109 @@ class Component extends DCLogic {
           }
           return;
         }
+        if (!enviar({ tipo: 'consulta', nombre: nombre, mail: mail, texto: texto })) {
+          if (error) {
+            error.textContent = 'No pudimos enviar el mensaje. Escribinos a ctotraslasierra@gmail.com y lo vemos.';
+            error.style.display = 'block';
+          }
+          return;
+        }
         if (error) error.style.display = 'none';
-        const asunto = 'Consulta desde la cartilla avícola';
-        const cuerpo = 'Nombre: ' + nombre + '\nMail: ' + mail + '\n\n' + texto + '\n';
-        window.location.href = 'mailto:ctotraslasierra@gmail.com'
-          + '?subject=' + encodeURIComponent(asunto)
-          + '&body=' + encodeURIComponent(cuerpo);
+        form.reset();
+        if (campos) campos.style.display = 'none';
+        if (gracias) {
+          gracias.style.display = 'flex';
+          if (listo) listo.focus();
+        }
+      });
+    }
+
+    // Registro previo a las descargas. Un solo registro habilita los tres
+    // archivos y queda recordado en este navegador.
+    //
+    // No es un control de acceso: los archivos están en URLs públicas del
+    // repositorio y quien las conozca los baja sin pasar por acá. Es una puerta
+    // de cortesía para saber a dónde llega el material.
+    const registro = document.getElementById('registro');
+    const descargas = Array.from(document.querySelectorAll('a[data-descarga]'));
+    if (registro && descargas.length) {
+      const REGISTRO_KEY = 'cto-registro-hecho';
+      const formR = document.getElementById('registro-form');
+      const errorR = document.getElementById('registro-error');
+      let hecho = false;
+      try { hecho = localStorage.getItem(REGISTRO_KEY) === '1'; } catch (e) {}
+
+      // El enlace que disparó el modal, para bajarlo apenas se completa.
+      let pedido = null;
+      let previoR = null;
+
+      const cerrarR = () => {
+        registro.style.display = 'none';
+        if (errorR) errorR.style.display = 'none';
+        if (previoR && previoR.focus) previoR.focus();
+      };
+
+      const bajar = (enlace) => {
+        // Se clona el enlace en lugar de reusar el click original, que ya fue
+        // cancelado con preventDefault.
+        const clon = document.createElement('a');
+        clon.href = enlace.href;
+        clon.setAttribute('download', enlace.getAttribute('download') || '');
+        document.body.appendChild(clon);
+        clon.click();
+        clon.remove();
+      };
+
+      descargas.forEach((enlace) => {
+        enlace.addEventListener('click', (e) => {
+          if (hecho) return;
+          e.preventDefault();
+          pedido = enlace;
+          previoR = document.activeElement;
+          registro.style.display = 'flex';
+          const primero = document.getElementById('r-nombre');
+          if (primero) primero.focus();
+        });
+      });
+
+      const xR = document.getElementById('registro-x');
+      if (xR) xR.addEventListener('click', cerrarR);
+      registro.addEventListener('click', (e) => { if (e.target === registro) cerrarR(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && registro.style.display !== 'none') cerrarR();
+      });
+
+      if (formR) formR.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = (document.getElementById('r-nombre').value || '').trim();
+        const mail = (document.getElementById('r-mail').value || '').trim();
+        const localidad = (document.getElementById('r-localidad').value || '').trim();
+        const organizacion = (document.getElementById('r-organizacion').value || '').trim();
+        if (!nombre || !mail || !localidad) {
+          if (errorR) {
+            errorR.textContent = 'Completá nombre, mail y localidad para habilitar las descargas.';
+            errorR.style.display = 'block';
+          }
+          return;
+        }
+        if (!enviar({
+          tipo: 'registro',
+          nombre: nombre,
+          mail: mail,
+          localidad: localidad,
+          organizacion: organizacion,
+          archivo: pedido ? (pedido.dataset.descarga || '') : ''
+        })) {
+          if (errorR) {
+            errorR.textContent = 'No pudimos registrar los datos. Escribinos a ctotraslasierra@gmail.com y te pasamos el material.';
+            errorR.style.display = 'block';
+          }
+          return;
+        }
+        hecho = true;
+        try { localStorage.setItem(REGISTRO_KEY, '1'); } catch (e) {}
+        cerrarR();
+        if (pedido) bajar(pedido);
       });
     }
 
