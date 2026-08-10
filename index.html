@@ -164,8 +164,23 @@ a:hover{color:#1f3818}
       </label>
 
       <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Provincia</span>
+        <input id="r-provincia" name="provincia" type="text" required autocomplete="address-level1" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">País</span>
+        <input id="r-pais" name="pais" type="text" required autocomplete="country-name" value="Argentina" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
         <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Organización o actividad <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#a09a8c">— opcional</span></span>
         <input id="r-organizacion" name="organizacion" type="text" autocomplete="organization" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;min-height:48px;width:100%">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a">Consultas o sugerencias <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#a09a8c">— opcional</span></span>
+        <textarea id="r-consulta" name="consulta" rows="3" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;line-height:1.6;color:#3f4437;background:#fff;border:1px solid #d9cfb8;padding:12px 13px;width:100%;resize:vertical"></textarea>
       </label>
 
       <p id="registro-error" role="alert" style="display:none;font-size:15px;line-height:1.5;color:#c05a32"></p>
@@ -1119,10 +1134,13 @@ class Component extends DCLogic {
         const nombre = (document.getElementById('r-nombre').value || '').trim();
         const mail = (document.getElementById('r-mail').value || '').trim();
         const localidad = (document.getElementById('r-localidad').value || '').trim();
+        const provincia = (document.getElementById('r-provincia').value || '').trim();
+        const pais = (document.getElementById('r-pais').value || '').trim();
         const organizacion = (document.getElementById('r-organizacion').value || '').trim();
-        if (!nombre || !mail || !localidad) {
+        const consultaTexto = (document.getElementById('r-consulta').value || '').trim();
+        if (!nombre || !mail || !localidad || !provincia || !pais) {
           if (errorR) {
-            errorR.textContent = 'Completá nombre, mail y localidad para habilitar las descargas.';
+            errorR.textContent = 'Completá nombre, mail, localidad, provincia y país para habilitar las descargas.';
             errorR.style.display = 'block';
           }
           return;
@@ -1132,7 +1150,10 @@ class Component extends DCLogic {
           nombre: nombre,
           mail: mail,
           localidad: localidad,
+          provincia: provincia,
+          pais: pais,
           organizacion: organizacion,
+          consulta: consultaTexto,
           archivo: pedido ? (pedido.dataset.descarga || '') : ''
         })) {
           if (errorR) {

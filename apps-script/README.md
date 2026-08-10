@@ -41,10 +41,20 @@ Dos hojas, creadas automáticamente la primera vez que llega un dato de cada tip
 
 | Hoja | Columnas |
 |---|---|
-| `registro` | fecha, nombre, mail, localidad, organizacion, archivo |
+| `registro` | fecha, nombre, mail, localidad, provincia, pais, organizacion, consulta, archivo |
 | `consulta` | fecha, nombre, mail, texto |
 
 `archivo` es el material que la persona quiso descargar cuando se registró.
+`consulta` en la hoja `registro` es el campo opcional de consultas o sugerencias
+del propio formulario de descarga; la hoja `consulta` es otra cosa, son los
+mensajes que llegan por el logo flotante.
+
+### Al cambiar las columnas
+
+El encabezado se escribe **solo cuando la hoja se crea**. Si la hoja ya existe y
+se agrega o mueve una columna en `HOJAS`, las filas nuevas se guardan en el orden
+nuevo bajo el encabezado viejo y quedan mal rotuladas. Hay que borrar la pestaña
+para que se recree con el encabezado correcto.
 
 ## Límite conocido
 

@@ -11,11 +11,16 @@
  *
  * Cada tipo va a su propia hoja, que se crea sola la primera vez.
  *
+ * OJO al cambiar las columnas de HOJAS: el encabezado se escribe solamente
+ * cuando la hoja se crea. Si la hoja ya existe, las filas nuevas se guardan en
+ * el orden nuevo bajo el encabezado viejo, y las columnas quedan mal rotuladas.
+ * Al agregar o mover una columna hay que borrar la hoja para que se recree.
+ *
  * Instrucciones de despliegue: ver README.md en esta misma carpeta.
  */
 
 var HOJAS = {
-  registro: ['fecha', 'nombre', 'mail', 'localidad', 'organizacion', 'archivo'],
+  registro: ['fecha', 'nombre', 'mail', 'localidad', 'provincia', 'pais', 'organizacion', 'consulta', 'archivo'],
   consulta: ['fecha', 'nombre', 'mail', 'texto']
 };
 
