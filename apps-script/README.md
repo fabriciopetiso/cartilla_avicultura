@@ -37,12 +37,18 @@ que actualizar `ENDPOINT` en `index.html`.
 
 ## Qué se guarda
 
-Dos hojas, creadas automáticamente la primera vez que llega un dato de cada tipo:
+Tres hojas, creadas automáticamente la primera vez que llega un dato de cada tipo:
 
 | Hoja | Columnas |
 |---|---|
 | `registro` | fecha, nombre, mail, localidad, provincia, pais, organizacion, consulta, archivo |
 | `consulta` | fecha, nombre, mail, texto |
+| `inscripcion` | fecha, evento, nombre, whatsapp, mail, localidad, provincia, organizacion, productor, colaboracion, consulta |
+
+`inscripcion` llega desde el formulario de talleres (`/taller/`). `evento` dice a
+qué taller corresponde cada fila, así la misma hoja sirve para los próximos.
+`colaboracion` es el monto del bono contribución que la persona dijo que puede
+aportar, en pesos.
 
 `archivo` es el material que la persona quiso descargar cuando se registró.
 `consulta` en la hoja `registro` es el campo opcional de consultas o sugerencias

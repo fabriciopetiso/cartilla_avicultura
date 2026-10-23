@@ -5,9 +5,10 @@
  * guardar los datos. Este script vive dentro de una planilla de Google y se
  * publica como aplicación web: index.html le hace POST y él escribe la fila.
  *
- * Recibe dos tipos de mensaje, distinguidos por el campo "tipo":
- *   registro  → alguien se registra para habilitar las descargas
- *   consulta  → alguien escribe un comentario o pregunta
+ * Recibe tres tipos de mensaje, distinguidos por el campo "tipo":
+ *   registro    → alguien se registra para habilitar las descargas
+ *   consulta    → alguien escribe un comentario o pregunta
+ *   inscripcion → alguien se anota a un taller desde /taller/
  *
  * Cada tipo va a su propia hoja, que se crea sola la primera vez.
  *
@@ -21,7 +22,8 @@
 
 var HOJAS = {
   registro: ['fecha', 'nombre', 'mail', 'localidad', 'provincia', 'pais', 'organizacion', 'consulta', 'archivo'],
-  consulta: ['fecha', 'nombre', 'mail', 'texto']
+  consulta: ['fecha', 'nombre', 'mail', 'texto'],
+  inscripcion: ['fecha', 'evento', 'nombre', 'whatsapp', 'mail', 'localidad', 'provincia', 'organizacion', 'productor', 'colaboracion', 'consulta']
 };
 
 function doPost(e) {
@@ -29,7 +31,7 @@ function doPost(e) {
     // El navegador manda el cuerpo como text/plain para evitar el preflight
     // CORS, que la aplicación web de Apps Script no sabe responder.
     var datos = JSON.parse(e.postData.contents);
-    var tipo = datos.tipo === 'consulta' ? 'consulta' : 'registro';
+    var tipo = (datos.tipo === 'consulta' || datos.tipo === 'inscripcion') ? datos.tipo : 'registro';
 
     var hoja = obtenerHoja(tipo);
     var fila = HOJAS[tipo].map(function (columna) {

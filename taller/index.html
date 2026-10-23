@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taller abierto: sal mineralizada hecha en el predio · CTO Traslasierra</title>
+<meta name="description" content="Sábado 14 de noviembre, de 14 a 19 h, en la Cooperativa Gallo Rojo. Taller abierto para elaborar los minerales de tus aves sin núcleo industrial. Inscripción obligatoria con bono contribución.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://materialavicola.altermundi.net/taller/">
+<meta property="og:title" content="Taller abierto: sal mineralizada hecha en el predio">
+<meta property="og:description" content="Sábado 14 de noviembre · 14 a 19 h · Cooperativa Gallo Rojo. Inscripción obligatoria hasta el miércoles 11/11, bono contribución.">
+<meta property="og:image" content="https://materialavicola.altermundi.net/taller/og-taller.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CTO Traslasierra">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taller abierto: sal mineralizada hecha en el predio">
+<meta name="twitter:description" content="Sábado 14 de noviembre · 14 a 19 h · Cooperativa Gallo Rojo. Inscripción obligatoria, bono contribución.">
+<meta name="twitter:image" content="https://materialavicola.altermundi.net/taller/og-taller.jpg">
+<link rel="canonical" href="https://materialavicola.altermundi.net/taller/">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<link href="../assets/fonts.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',system-ui,sans-serif;background:#e2ddd1;color:#3f4437;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:#c05a32}
+a:hover{color:#1f3818}
+::selection{background:#cfe0b8}
+
+.hoja{max-width:1080px;margin:0 auto;background:#fdfaf2;box-shadow:0 0 60px rgba(40,34,20,.14);min-height:100vh}
+.col{max-width:640px;margin:0 auto}
+
+.barra{position:sticky;top:0;z-index:50;background:rgba(253,250,242,.96);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid #e4dac6;padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
+.barra a.volver{font-size:14px;line-height:1.35;color:#7c766a;text-decoration:none;display:flex;align-items:center;gap:8px;min-height:38px}
+.barra a.volver:hover{color:#1f3818}
+.barra a.ir{font-family:'Bitter',serif;font-size:14px;font-weight:700;color:#fff;background:#1f3818;text-decoration:none;padding:9px 14px;white-space:nowrap;min-height:40px;display:flex;align-items:center}
+
+.cabecera{background:#1f3818;padding:0 0 30px}
+.cabecera img{width:100%;height:clamp(220px,40vw,380px);object-fit:cover;object-position:center 64%}
+.cabecera .col{padding:26px 20px 0;display:flex;flex-direction:column;gap:12px}
+.kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#9fce5f;font-weight:700}
+h1{font-family:'Bitter',serif;font-size:clamp(32px,7.4vw,46px);line-height:1.06;color:#fdfaf2;font-weight:800;letter-spacing:-.012em}
+h1 span{display:block;color:#9fce5f}
+.bajada{font-size:clamp(18px,4.2vw,21px);line-height:1.45;color:#cfe0b8}
+
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:14px;border-top:1px solid rgba(255,255,255,.16);padding-top:18px}
+.dato{display:flex;flex-direction:column;gap:3px;padding:10px 0}
+.dato dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9fce5f;font-weight:700}
+.dato dd{font-family:'Bitter',serif;font-size:19px;font-weight:700;line-height:1.3;color:#fff}
+.dato dd small{display:block;font-family:'Source Sans 3',system-ui,sans-serif;font-size:15px;font-weight:400;line-height:1.5;color:#cfe0b8;margin-top:2px}
+
+section{padding:34px 20px;border-bottom:1px solid #e9e0cd}
+.etiqueta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#c05a32;font-weight:800;margin-bottom:12px}
+h2{font-family:'Bitter',serif;font-size:clamp(23px,5vw,27px);line-height:1.2;color:#1f3818;font-weight:700;margin-bottom:16px}
+.texto{font-size:17px;line-height:1.7;color:#3f4437;text-wrap:pretty}
+
+.programa{list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:paso}
+.programa li{counter-increment:paso;display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e4dac6;padding:14px 16px}
+.programa li::before{content:counter(paso);font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#c05a32;min-width:22px;line-height:1.35}
+.programa strong{display:block;font-family:'Bitter',serif;font-size:17px;color:#1f3818;line-height:1.35}
+.programa span{display:block;font-size:16px;line-height:1.55;color:#5d5340;margin-top:2px}
+
+.formulario{background:#f4efe1;border:1px solid #e4dac6}
+.formulario .encabezado{background:#1f3818;padding:18px 22px;display:flex;align-items:center;gap:14px}
+.formulario .encabezado img{width:46px;height:46px;flex-shrink:0;object-fit:contain}
+.formulario .encabezado p{font-family:'Bitter',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.3}
+.formulario .encabezado p small{display:block;font-family:'Source Sans 3',system-ui,sans-serif;font-size:14px;font-weight:400;color:#cfe0b8}
+.campos{padding:22px;display:flex;flex-direction:column;gap:16px}
+.campo{display:flex;flex-direction:column;gap:6px;border:none}
+.campo > span,.campo legend{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c766a}
+.campo .opcional{font-weight:400;text-transform:none;letter-spacing:0;color:#a09a8c}
+.campo .ayuda{font-size:14px;line-height:1.5;color:#7c766a;text-transform:none;letter-spacing:0;font-weight:400}
+input[type=text],input[type=tel],input[type=email],input[type=number],select,textarea{font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#3f4437;background:#fff;border:1px solid #d9cfb8;border-radius:0;padding:12px 13px;min-height:48px;width:100%}
+select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#7c766a 50%),linear-gradient(135deg,#7c766a 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 14px) 21px;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px}
+textarea{line-height:1.6;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid #6fa83a;outline-offset:0;border-color:#6fa83a}
+[aria-invalid=true]{border-color:#c05a32 !important;background-color:#fff8f4 !important}
+.monto{display:flex;align-items:stretch}
+.monto b{display:flex;align-items:center;padding:0 13px;background:#ece3d2;border:1px solid #d9cfb8;border-right:none;font-size:17px;color:#5d5340}
+.opciones{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.opciones label{flex:1 1 120px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #d9cfb8;padding:12px 14px;min-height:48px;cursor:pointer;font-size:16px;color:#3f4437}
+.opciones input{width:20px;height:20px;accent-color:#1f3818;flex-shrink:0}
+.opciones label:has(input:checked){border-color:#1f3818;box-shadow:inset 0 0 0 1px #1f3818}
+.opciones.invalido label{border-color:#c05a32}
+.error{display:none;font-size:15px;line-height:1.5;color:#b14e28;background:#fff8f4;border:1px solid #efc7b5;padding:10px 12px}
+.enviar{font-family:'Bitter',serif;font-size:17px;font-weight:700;color:#fff;background:#1f3818;border:none;padding:15px 18px;min-height:54px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%}
+.enviar:hover{background:#2b4a22}
+.enviar:disabled{opacity:.6;cursor:default}
+.enviar i{font-style:normal;color:#9fce5f}
+.nota{font-size:13px;line-height:1.55;color:#8a8475}
+
+.aviso{display:none;padding:24px 22px;flex-direction:column;gap:14px}
+.aviso .titulo{font-family:'Bitter',serif;font-size:22px;font-weight:700;color:#1f3818;line-height:1.3}
+.aviso p{font-size:17px;line-height:1.65;color:#3f4437}
+.boton{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#1f3818;color:#fff;font-family:'Bitter',serif;font-weight:700;font-size:16px;padding:14px 16px;min-height:52px}
+.boton:hover{background:#2b4a22;color:#fff}
+.boton i{font-style:normal;color:#9fce5f}
+.secundario{background:none;border:none;font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#c05a32;text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left;padding:8px 0;min-height:44px}
+
+footer{background:#1f3818;padding:32px 20px 40px}
+footer .col{display:flex;flex-direction:column;gap:12px}
+footer .marca{display:flex;align-items:center;gap:14px}
+footer .marca img{width:56px;height:56px;flex-shrink:0;object-fit:contain}
+footer .marca p{font-family:'Bitter',serif;color:#fff;font-size:17px;font-weight:700;line-height:1.3}
+footer p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.72)}
+footer a{color:#cfe0b8;text-decoration:underline;text-decoration-color:rgba(159,206,95,.6);text-underline-offset:2px}
+footer a:hover{color:#fff}
+footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
+
+@media (min-width:700px){
+  .cabecera .col,section{padding-left:0;padding-right:0}
+}
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <nav class="barra" aria-label="Navegación">
+    <a class="volver" href="../"><span aria-hidden="true">←</span> Cartilla de alimentación agroecológica</a>
+    <a class="ir" href="#inscripcion">Inscribirme</a>
+  </nav>
+
+  <header class="cabecera">
+    <img src="../assets/img9.jpg" alt="Gallinas barradas y coloradas en un patio de tierra">
+    <div class="col">
+      <p class="kicker">Taller abierto · LibreIncu</p>
+      <h1>Sal mineralizada <span>hecha en el predio</span></h1>
+      <p class="bajada">Elaborá los minerales de tus aves sin núcleo industrial.</p>
+      <dl class="datos">
+        <div class="dato">
+          <dt>Cuándo</dt>
+          <dd>Sábado 14 de noviembre<small>De 14 a 19 h</small></dd>
+        </div>
+        <div class="dato">
+          <dt>Dónde</dt>
+          <dd>Cooperativa Gallo Rojo<small>La dirección exacta te la confirmamos por WhatsApp.</small></dd>
+        </div>
+        <div class="dato">
+          <dt>Bono contribución</dt>
+          <dd>Indicás el monto al inscribirte<small>Contanos con cuánto podés colaborar con la actividad.</small></dd>
+        </div>
+        <div class="dato">
+          <dt>Inscripción obligatoria</dt>
+          <dd>Hasta el miércoles 11 de noviembre<small>Nos sirve para preparar los materiales.</small></dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <section aria-labelledby="programa-t">
+    <div class="col">
+      <p class="etiqueta">Programa</p>
+      <h2 id="programa-t">Qué vamos a hacer</h2>
+      <ol class="programa">
+        <li><div><strong>Marco general del proyecto</strong><span>LibreIncu y la propuesta de soberanía avícola para la agricultura familiar, campesina e indígena.</span></div></li>
+        <li><div><strong>Por qué sin núcleo industrial</strong><span>Qué trae el núcleo comercial y qué lo reemplaza.</span></div></li>
+        <li><div><strong>La fórmula y qué aporta</strong><span>Cada ingrediente de la sal mineralizada y cuánto se incluye en el iniciador, el terminador, la ponedora y la reproductora.</span></div></li>
+        <li><div><strong>Práctica</strong><span>Molienda, mezcla y guardado.</span></div></li>
+        <li><div><strong>Ajustes a campo</strong><span>Qué mirar en las aves (pluma, cresta, postura) y cómo corregimos la fórmula en El Espinillo.</span></div></li>
+        <li><div><strong>Preguntas y cierre</strong><span>Te llevás la receta y la cartilla en PDF.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="inscripcion" aria-labelledby="inscripcion-t" style="border-bottom:none">
+    <div class="col">
+      <p class="etiqueta">Inscripción</p>
+      <h2 id="inscripcion-t">Anotate para venir</h2>
+
+      <div class="formulario">
+        <div class="encabezado">
+          <img src="../assets/logo-white.png" alt="">
+          <p>Taller de sal mineralizada<small>Sábado 14 de noviembre · 14 a 19 h · Cooperativa Gallo Rojo</small></p>
+        </div>
+
+        <form id="form-inscripcion" class="campos" novalidate>
+          <label class="campo">
+            <span>Nombre y apellido</span>
+            <input id="f-nombre" name="nombre" type="text" required autocomplete="name">
+          </label>
+
+          <label class="campo">
+            <span>WhatsApp</span>
+            <input id="f-whatsapp" name="whatsapp" type="tel" required autocomplete="tel" inputmode="tel" placeholder="Ej.: 351 123 4567">
+            <span class="ayuda">Por acá te confirmamos la dirección.</span>
+          </label>
+
+          <label class="campo">
+            <span>Mail <span class="opcional">— opcional</span></span>
+            <input id="f-mail" name="mail" type="email" autocomplete="email" inputmode="email">
+          </label>
+
+          <label class="campo">
+            <span>Localidad</span>
+            <input id="f-localidad" name="localidad" type="text" required autocomplete="address-level2">
+          </label>
+
+          <label class="campo">
+            <span>Provincia</span>
+            <select id="f-provincia" name="provincia" required autocomplete="address-level1">
+              <option value="">Elegí tu provincia</option>
+              <option>Buenos Aires</option>
+              <option>Ciudad de Buenos Aires</option>
+              <option>Catamarca</option>
+              <option>Chaco</option>
+              <option>Chubut</option>
+              <option>Córdoba</option>
+              <option>Corrientes</option>
+              <option>Entre Ríos</option>
+              <option>Formosa</option>
+              <option>Jujuy</option>
+              <option>La Pampa</option>
+              <option>La Rioja</option>
+              <option>Mendoza</option>
+              <option>Misiones</option>
+              <option>Neuquén</option>
+              <option>Río Negro</option>
+              <option>Salta</option>
+              <option>San Juan</option>
+              <option>San Luis</option>
+              <option>Santa Cruz</option>
+              <option>Santa Fe</option>
+              <option>Santiago del Estero</option>
+              <option>Tierra del Fuego</option>
+              <option>Tucumán</option>
+              <option>Otro país</option>
+            </select>
+          </label>
+
+          <label class="campo">
+            <span>Organización o cooperativa <span class="opcional">— opcional</span></span>
+            <input id="f-organizacion" name="organizacion" type="text" autocomplete="organization">
+          </label>
+
+          <fieldset class="campo">
+            <legend>¿Sos productor/a?</legend>
+            <div class="opciones" id="f-productor">
+              <label><input type="radio" name="productor" value="Sí" required> Sí</label>
+              <label><input type="radio" name="productor" value="No"> No</label>
+            </div>
+          </fieldset>
+
+          <label class="campo">
+            <span>¿Con cuánto podés colaborar con la actividad?</span>
+            <span class="ayuda">Bono contribución, en pesos.</span>
+            <span class="monto"><b aria-hidden="true">$</b><input id="f-colaboracion" name="colaboracion" type="number" required min="0" step="1" inputmode="numeric"></span>
+          </label>
+
+          <label class="campo">
+            <span>¿Qué te gustaría preguntar en el taller? <span class="opcional">— opcional</span></span>
+            <textarea id="f-consulta" name="consulta" rows="3"></textarea>
+          </label>
+
+          <p id="f-error" class="error" role="alert"></p>
+
+          <button id="f-enviar" class="enviar" type="submit"><span>Inscribirme</span><i aria-hidden="true">→</i></button>
+          <p class="nota">Usamos estos datos solo para organizar el taller. No los compartimos con nadie.</p>
+        </form>
+
+        <div id="gracias" class="aviso" role="status" aria-live="polite" tabindex="-1">
+          <p class="titulo">¡Listo! Tu inscripción quedó registrada.</p>
+          <p>Nos vemos el <strong>sábado 14 de noviembre a las 14 h</strong> en la Cooperativa Gallo Rojo. Te escribimos por WhatsApp con la dirección exacta.</p>
+          <p>Mientras tanto, podés recorrer la cartilla: el capítulo 4 trata las sales minerales.</p>
+          <a class="boton" href="../#cap4"><span>Ir a la cartilla</span><i aria-hidden="true">→</i></a>
+          <button id="otra" class="secundario" type="button">Inscribir a otra persona</button>
+        </div>
+
+        <div id="cerrado" class="aviso">
+          <p class="titulo">Las inscripciones cerraron.</p>
+          <p>El cierre fue el miércoles 11 de noviembre. Si querés venir igual, escribinos por WhatsApp y lo vemos.</p>
+          <a class="boton" href="https://wa.me/5493517350189" target="_blank" rel="noopener"><span>WhatsApp 351 735 0189</span><i aria-hidden="true">↗</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="col">
+      <div class="marca">
+        <img src="../assets/logo-white.png" alt="Logo CTO Traslasierra">
+        <p>Taller abierto de sal mineralizada</p>
+      </div>
+      <p>Convoca <strong><a href="https://cto.ar/" target="_blank" rel="noopener">CTO Traslasierra<span class="flecha" aria-hidden="true">↗</span></a></strong> · En el marco de <strong><a href="https://libreincu.altermundi.net/" target="_blank" rel="noopener">LibreIncu<span class="flecha" aria-hidden="true">↗</span></a></strong> · Con el apoyo de <strong><a href="https://agroecologyfund.org/" target="_blank" rel="noopener">Agroecology Fund<span class="flecha" aria-hidden="true">↗</span></a></strong></p>
+      <p>Consultas: <a href="https://wa.me/5493517350189" target="_blank" rel="noopener">WhatsApp 351 735 0189</a> · <a href="mailto:ctotraslasierra@gmail.com">ctotraslasierra@gmail.com</a></p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  // Mismo backend que la cartilla: aplicación web de Apps Script que escribe en
+  // la planilla de CTO. Este formulario usa el tipo "inscripcion", que va a su
+  // propia hoja. Despliegue y columnas: ../apps-script/README.md
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxePGNWtztTsAxNd-HjElKtdDY1Gk6PcYUzIf-95aUO-uA666eOUNm_D5kAA7YcgARU3Q/exec';
+  var EVENTO = 'Taller sal mineralizada · 14/11/2026 · Cooperativa Gallo Rojo';
+  // Cierre: fin del miércoles 11 de noviembre, hora de Córdoba.
+  var CIERRE = new Date('2026-11-12T00:00:00-03:00');
+
+  var form = document.getElementById('form-inscripcion');
+  var error = document.getElementById('f-error');
+  var gracias = document.getElementById('gracias');
+  var cerrado = document.getElementById('cerrado');
+  var boton = document.getElementById('f-enviar');
+
+  if (Date.now() >= CIERRE.getTime()) {
+    form.style.display = 'none';
+    cerrado.style.display = 'flex';
+    return;
+  }
+
+  // Igual que en la cartilla: text/plain para evitar el preflight CORS que Apps
+  // Script no responde. La respuesta es opaca: sabemos que salió, no que se guardó.
+  function enviar(datos) {
+    var cuerpo = JSON.stringify(datos);
+    try {
+      if (navigator.sendBeacon) {
+        var blob = new Blob([cuerpo], { type: 'text/plain;charset=utf-8' });
+        if (navigator.sendBeacon(ENDPOINT, blob)) return true;
+      }
+    } catch (e) {}
+    try {
+      fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: cuerpo
+      }).catch(function () {});
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function valor(id) {
+    var el = document.getElementById(id);
+    return el ? (el.value || '').trim() : '';
+  }
+
+  function marcar(el, mal) {
+    if (mal) el.setAttribute('aria-invalid', 'true');
+    else el.removeAttribute('aria-invalid');
+  }
+
+  function mostrarError(texto, foco) {
+    error.textContent = texto;
+    error.style.display = 'block';
+    if (foco && foco.focus) foco.focus();
+  }
+
+  form.addEventListener('input', function (e) {
+    if (e.target && e.target.getAttribute('aria-invalid')) marcar(e.target, false);
+  });
+  form.addEventListener('change', function (e) {
+    if (e.target && e.target.name === 'productor') {
+      document.getElementById('f-productor').classList.remove('invalido');
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    error.style.display = 'none';
+
+    var nombre = valor('f-nombre');
+    var whatsapp = valor('f-whatsapp');
+    var mail = valor('f-mail');
+    var localidad = valor('f-localidad');
+    var provincia = valor('f-provincia');
+    var organizacion = valor('f-organizacion');
+    var consulta = valor('f-consulta');
+    var colaboracion = valor('f-colaboracion');
+    var elegido = form.querySelector('input[name="productor"]:checked');
+    var productor = elegido ? elegido.value : '';
+
+    var faltan = [];
+    var primero = null;
+    function revisar(id, mal, nombreCampo) {
+      var el = document.getElementById(id);
+      marcar(el, mal);
+      if (mal) {
+        faltan.push(nombreCampo);
+        if (!primero) primero = el;
+      }
+    }
+
+    revisar('f-nombre', !nombre, 'nombre y apellido');
+    revisar('f-whatsapp', whatsapp.replace(/\D/g, '').length < 8, 'WhatsApp');
+    revisar('f-mail', mail !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail), 'un mail válido');
+    revisar('f-localidad', !localidad, 'localidad');
+    revisar('f-provincia', !provincia, 'provincia');
+    if (!productor) {
+      document.getElementById('f-productor').classList.add('invalido');
+      faltan.push('si sos productor/a');
+      if (!primero) primero = form.querySelector('input[name="productor"]');
+    }
+    revisar('f-colaboracion', colaboracion === '' || isNaN(Number(colaboracion)) || Number(colaboracion) < 0, 'con cuánto podés colaborar');
+
+    if (faltan.length) {
+      mostrarError('Falta completar: ' + faltan.join(', ') + '.', primero);
+      return;
+    }
+
+    boton.disabled = true;
+    var ok = enviar({
+      tipo: 'inscripcion',
+      evento: EVENTO,
+      nombre: nombre,
+      whatsapp: whatsapp,
+      mail: mail,
+      localidad: localidad,
+      provincia: provincia,
+      organizacion: organizacion,
+      productor: productor,
+      // Como texto: el Apps Script guarda vacío cualquier valor falso, y un 0 es
+      // una respuesta válida ("no puedo aportar") que tiene que quedar anotada.
+      colaboracion: String(Number(colaboracion)),
+      consulta: consulta
+    });
+    boton.disabled = false;
+
+    if (!ok) {
+      mostrarError('No pudimos enviar la inscripción. Escribinos por WhatsApp al 351 735 0189 y te anotamos.', null);
+      return;
+    }
+
+    form.reset();
+    form.style.display = 'none';
+    gracias.style.display = 'flex';
+    gracias.focus();
+    gracias.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  document.getElementById('otra').addEventListener('click', function () {
+    gracias.style.display = 'none';
+    form.style.display = 'flex';
+    document.getElementById('f-nombre').focus();
+  });
+})();
+</script>
+</body>
+</html>
