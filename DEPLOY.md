@@ -1,5 +1,20 @@
 # Deploy — cartilla_avicultura via GitHub Pages + AlterMundi DNS
 
+## Mudanza a materialavicola.cto.ar (octubre 2026)
+
+El sitio se sirve ahora en **https://materialavicola.cto.ar/**, un subdominio de
+CTO. Lo que sigue más abajo es el historial del despliegue original en
+AlterMundi.
+
+- **DNS:** en Cloudflare, zona `cto.ar`: `CNAME  materialavicola  →  fabriciopetiso.github.io`,
+  solo DNS (sin proxy), para que GitHub pueda emitir el certificado.
+- **Repo:** el archivo `CNAME` contiene `materialavicola.cto.ar`. En
+  Settings → Pages tiene que figurar ese dominio con "Enforce HTTPS" tildado.
+- **Dirección vieja:** `materialavicola.altermundi.net` la toma el repo
+  [`fabriciopetiso/materialavicola-redireccion`](https://github.com/fabriciopetiso/materialavicola-redireccion),
+  que manda cada visita a la misma ruta en la dirección nueva. El DNS de
+  AlterMundi no cambia.
+
 Chosen approach: serve from **GitHub Pages** and point an AlterMundi subdomain at
 it with auto-provisioned TLS. No AlterMundi infra, no self-hosted runner — the
 org only adds one DNS record. Sidesteps the runner-trust problem entirely.

@@ -4,7 +4,7 @@ Cartilla técnica para elaborar y manejar alimento agroecológico en la avicultu
 familiar, campesina e indígena (AFCI). Sitio web de página única.
 
 **Producido por:** CTO Traslasierra · AlterMundi · UTEP Rama Agraria.
-**En línea:** https://materialavicola.altermundi.net/
+**En línea:** https://materialavicola.cto.ar/
 
 ## Qué es
 
@@ -49,7 +49,7 @@ por HTTP.)
 
 ## Publicación
 
-Se sirve con **GitHub Pages** sobre el dominio `materialavicola.altermundi.net`,
+Se sirve con **GitHub Pages** sobre el dominio `materialavicola.cto.ar`,
 con TLS provisto automáticamente por GitHub. El paso a paso completo está en
 [`DEPLOY.md`](DEPLOY.md).
 

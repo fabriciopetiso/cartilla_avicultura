@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://materialavicola.altermundi.net/sitemap.xml
+Sitemap: https://materialavicola.cto.ar/sitemap.xml
