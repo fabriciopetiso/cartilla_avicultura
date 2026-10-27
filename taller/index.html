@@ -38,30 +38,22 @@ a:hover{color:#1f3818}
 .barra a.volver:hover{color:#1f3818}
 .barra a.ir{font-family:'Bitter',serif;font-size:14px;font-weight:700;color:#fff;background:#1f3818;text-decoration:none;padding:9px 14px;white-space:nowrap;min-height:40px;display:flex;align-items:center}
 
-.cabecera{background:#1f3818;padding:0 0 30px}
-.cabecera img{width:100%;height:clamp(220px,40vw,380px);object-fit:cover;object-position:center 56%}
-.cabecera .col{padding:26px 20px 0;display:flex;flex-direction:column;gap:12px}
-.kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#9fce5f;font-weight:700}
-h1{font-family:'Bitter',serif;font-size:clamp(28px,6.6vw,42px);line-height:1.06;color:#fdfaf2;font-weight:800;letter-spacing:-.012em}
-h1 span{display:block;color:#9fce5f}
-.bajada{font-size:clamp(18px,4.2vw,21px);line-height:1.45;color:#cfe0b8}
+.flyer{background:#efe8d8;padding:0}
+.flyer img{width:100%;height:auto;max-width:640px;margin:0 auto}
+h1{font-family:'Bitter',serif;font-size:clamp(26px,6vw,36px);line-height:1.12;color:#1f3818;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+.texto + .texto{margin-top:14px}
 
-.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:14px;border-top:1px solid rgba(255,255,255,.16);padding-top:18px}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px 24px;margin-top:22px;border-top:1px solid #e4dac6;padding-top:14px}
 .dato{display:flex;flex-direction:column;gap:3px;padding:10px 0}
-.dato dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9fce5f;font-weight:700}
-.dato dd{font-family:'Bitter',serif;font-size:19px;font-weight:700;line-height:1.3;color:#fff}
-.dato dd small{display:block;font-family:'Source Sans 3',system-ui,sans-serif;font-size:15px;font-weight:400;line-height:1.5;color:#cfe0b8;margin-top:2px}
+.dato dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#c05a32;font-weight:800}
+.dato dd{font-family:'Bitter',serif;font-size:19px;font-weight:700;line-height:1.3;color:#1f3818}
+.dato dd small{display:block;font-family:'Source Sans 3',system-ui,sans-serif;font-size:15px;font-weight:400;line-height:1.5;color:#5d5340;margin-top:2px}
 
 section{padding:34px 20px;border-bottom:1px solid #e9e0cd}
 .etiqueta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#c05a32;font-weight:800;margin-bottom:12px}
 h2{font-family:'Bitter',serif;font-size:clamp(23px,5vw,27px);line-height:1.2;color:#1f3818;font-weight:700;margin-bottom:16px}
 .texto{font-size:17px;line-height:1.7;color:#3f4437;text-wrap:pretty}
 
-.programa{list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:paso}
-.programa li{counter-increment:paso;display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e4dac6;padding:14px 16px}
-.programa li::before{content:counter(paso);font-family:'Bitter',serif;font-size:19px;font-weight:700;color:#c05a32;min-width:22px;line-height:1.35}
-.programa strong{display:block;font-family:'Bitter',serif;font-size:17px;color:#1f3818;line-height:1.35}
-.programa span{display:block;font-size:16px;line-height:1.55;color:#5d5340;margin-top:2px}
 
 .formulario{background:#f4efe1;border:1px solid #e4dac6}
 .formulario .encabezado{background:#1f3818;padding:18px 22px;display:flex;align-items:center;gap:14px}
@@ -98,6 +90,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #6fa83a;outline-offset
 .boton{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#1f3818;color:#fff;font-family:'Bitter',serif;font-weight:700;font-size:16px;padding:14px 16px;min-height:52px}
 .boton:hover{background:#2b4a22;color:#fff}
 .boton i{font-style:normal;color:#9fce5f}
+.secundario-boton{background:#fff;color:#1f3818;border:1.5px solid #1f3818}
+.secundario-boton:hover{background:#f4efe1;color:#1f3818}
 .secundario{background:none;border:none;font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#c05a32;text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left;padding:8px 0;min-height:44px}
 
 footer{background:#1f3818;padding:32px 20px 40px}
@@ -111,7 +105,7 @@ footer a:hover{color:#fff}
 footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
 
 @media (min-width:700px){
-  .cabecera .col,section{padding-left:0;padding-right:0}
+  section{padding-left:0;padding-right:0}
 }
 </style>
 </head>
@@ -123,12 +117,16 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
     <a class="ir" href="#inscripcion">Inscribirme</a>
   </nav>
 
-  <header class="cabecera">
-    <img src="foto-taller.jpg" alt="Lote de pollos comiendo alimento de elaboración propia en los comederos">
+  <header class="flyer">
+    <img src="flyer-taller.jpg" width="1080" height="1080" alt="Flyer del taller vivencial Alimentos agroecológicos para la producción de huevos y pollos. Organiza CTO Traslasierra. Sábado 14 de noviembre de 14 a 19 h. Nos recibe la Cooperativa Gallo Rojo. Inscripción obligatoria hasta el 11/11, colaboración solidaria.">
+  </header>
+
+  <section aria-labelledby="taller-t">
     <div class="col">
-      <p class="kicker">Taller vivencial · LibreIncu</p>
-      <h1>Alimentos agroecológicos <span>para la producción de huevos y pollos</span></h1>
-      <p class="bajada">Dietas de elaboración propia, sin núcleo industrial ni antibióticos.</p>
+      <p class="etiqueta">Taller vivencial · LibreIncu</p>
+      <h1 id="taller-t">Alimentos agroecológicos para la producción de huevos y pollos</h1>
+      <p class="texto">La producción de pollos y huevos de la agricultura familiar, campesina e indígena enfrenta una triple dependencia del modelo agroindustrial. Genética: el pollito híbrido viene del exterior. Alimentaria: las dietas dependen de núcleos vitamínicos y minerales industriales y de antibióticos preventivos. Tecnológica: las incubadoras comerciales son caras o están pensadas para hobbistas. Trabajamos los tres frentes a la vez.</p>
+      <p class="texto">Este taller vivencial se mete en el frente del alimento. Compartimos cómo hacemos el alimento de elaboración propia para ponedoras y pollos, sin núcleo industrial ni antibióticos, armamos dietas específicas para cada etapa y producción, y preparamos juntos el concentrado mineral. También vemos qué mirar en las aves para saber si la dieta funciona. Te llevás la receta y la cartilla en PDF.</p>
       <dl class="datos">
         <div class="dato">
           <dt>Cuándo</dt>
@@ -136,32 +134,17 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
         </div>
         <div class="dato">
           <dt>Nos recibe</dt>
-          <dd>Cooperativa Gallo Rojo<small>La dirección exacta te la confirmamos por WhatsApp.</small></dd>
+          <dd>Cooperativa Gallo Rojo<small>La ubicación aparece al completar la inscripción.</small></dd>
         </div>
         <div class="dato">
           <dt>Colaboración solidaria</dt>
-          <dd>Indicás el monto al inscribirte<small>Contanos con cuánto podés colaborar con la actividad.</small></dd>
+          <dd>No obligatoria<small>Si querés, indicás en el formulario con cuánto podés colaborar.</small></dd>
         </div>
         <div class="dato">
           <dt>Inscripción obligatoria</dt>
           <dd>Hasta el miércoles 11 de noviembre<small>Nos sirve para preparar los materiales.</small></dd>
         </div>
       </dl>
-    </div>
-  </header>
-
-  <section aria-labelledby="programa-t">
-    <div class="col">
-      <p class="etiqueta">Programa</p>
-      <h2 id="programa-t">Qué vamos a hacer</h2>
-      <ol class="programa">
-        <li><div><strong>Marco general del proyecto</strong><span>LibreIncu y la propuesta de soberanía avícola para la agricultura familiar, campesina e indígena.</span></div></li>
-        <li><div><strong>Por qué sin núcleo industrial</strong><span>Qué trae el núcleo comercial y qué lo reemplaza.</span></div></li>
-        <li><div><strong>La fórmula y qué aporta</strong><span>Cada ingrediente de la sal mineralizada y cuánto se incluye en el iniciador, el terminador, la ponedora y la reproductora.</span></div></li>
-        <li><div><strong>Práctica</strong><span>Molienda, mezcla y guardado.</span></div></li>
-        <li><div><strong>Ajustes a campo</strong><span>Qué mirar en las aves (pluma, cresta, postura) y cómo corregimos la fórmula en El Espinillo.</span></div></li>
-        <li><div><strong>Preguntas y cierre</strong><span>Te llevás la receta y la cartilla en PDF.</span></div></li>
-      </ol>
     </div>
   </section>
 
@@ -185,7 +168,7 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
           <label class="campo">
             <span>WhatsApp</span>
             <input id="f-whatsapp" name="whatsapp" type="tel" required autocomplete="tel" inputmode="tel" placeholder="Ej.: 351 123 4567">
-            <span class="ayuda">Por acá te confirmamos la dirección.</span>
+            <span class="ayuda">Para avisarte si hay alguna novedad del taller.</span>
           </label>
 
           <label class="campo">
@@ -244,9 +227,9 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
           </fieldset>
 
           <label class="campo">
-            <span>¿Con cuánto podés colaborar con la actividad?</span>
-            <span class="ayuda">Colaboración solidaria, en pesos.</span>
-            <span class="monto"><b aria-hidden="true">$</b><input id="f-colaboracion" name="colaboracion" type="number" required min="0" step="1" inputmode="numeric"></span>
+            <span>¿Con cuánto podés colaborar con la actividad? <span class="opcional">— opcional</span></span>
+            <span class="ayuda">Colaboración solidaria, no obligatoria. En pesos.</span>
+            <span class="monto"><b aria-hidden="true">$</b><input id="f-colaboracion" name="colaboracion" type="number" min="0" step="1" inputmode="numeric"></span>
           </label>
 
           <label class="campo">
@@ -262,9 +245,11 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
 
         <div id="gracias" class="aviso" role="status" aria-live="polite" tabindex="-1">
           <p class="titulo">¡Listo! Tu inscripción quedó registrada.</p>
-          <p>Nos vemos el <strong>sábado 14 de noviembre a las 14 h</strong> en la Cooperativa Gallo Rojo. Te escribimos por WhatsApp con la dirección exacta.</p>
+          <p>Nos vemos el <strong>sábado 14 de noviembre a las 14 h</strong> en la Cooperativa Gallo Rojo. Acá tenés la ubicación:</p>
+          <a id="ubicacion" class="boton" href="#" target="_blank" rel="noopener"><span>Ver la ubicación en el mapa</span><i aria-hidden="true">↗</i></a>
+          <p id="ubicacion-pendiente" style="display:none">La ubicación exacta la publicamos en esta página en los próximos días.</p>
           <p>Mientras tanto, podés recorrer la cartilla de alimentación agroecológica.</p>
-          <a class="boton" href="../#contenido"><span>Ir a la cartilla</span><i aria-hidden="true">→</i></a>
+          <a class="boton secundario-boton" href="../#contenido"><span>Ir a la cartilla</span><i aria-hidden="true">→</i></a>
           <button id="otra" class="secundario" type="button">Inscribir a otra persona</button>
         </div>
 
@@ -299,6 +284,9 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
   var EVENTO = 'Taller vivencial alimentos agroecológicos · 14/11/2026 · Cooperativa Gallo Rojo';
   // Cierre: fin del miércoles 11 de noviembre, hora de Córdoba.
   var CIERRE = new Date('2026-11-12T00:00:00-03:00');
+  // Link de Google Maps a la Cooperativa Gallo Rojo. Se muestra al completar la
+  // inscripción. Mientras esté vacío, se muestra un aviso en su lugar.
+  var UBICACION = '';
 
   var form = document.getElementById('form-inscripcion');
   var error = document.getElementById('f-error');
@@ -396,7 +384,7 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
       faltan.push('si sos productor/a');
       if (!primero) primero = form.querySelector('input[name="productor"]');
     }
-    revisar('f-colaboracion', colaboracion === '' || isNaN(Number(colaboracion)) || Number(colaboracion) < 0, 'con cuánto podés colaborar');
+    revisar('f-colaboracion', colaboracion !== '' && (isNaN(Number(colaboracion)) || Number(colaboracion) < 0), 'un monto válido de colaboración');
 
     if (faltan.length) {
       mostrarError('Falta completar: ' + faltan.join(', ') + '.', primero);
@@ -416,7 +404,7 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
       productor: productor,
       // Como texto: el Apps Script guarda vacío cualquier valor falso, y un 0 es
       // una respuesta válida ("no puedo aportar") que tiene que quedar anotada.
-      colaboracion: String(Number(colaboracion)),
+      colaboracion: colaboracion === '' ? '' : String(Number(colaboracion)),
       consulta: consulta
     });
     boton.disabled = false;
@@ -428,6 +416,9 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
 
     form.reset();
     form.style.display = 'none';
+    var enlace = document.getElementById('ubicacion');
+    if (UBICACION) { enlace.href = UBICACION; enlace.style.display = 'flex'; document.getElementById('ubicacion-pendiente').style.display = 'none'; }
+    else { enlace.style.display = 'none'; document.getElementById('ubicacion-pendiente').style.display = 'block'; }
     gracias.style.display = 'flex';
     gracias.focus();
     gracias.scrollIntoView({ behavior: 'smooth', block: 'center' });
