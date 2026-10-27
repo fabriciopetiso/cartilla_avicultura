@@ -94,6 +94,14 @@ input:focus,select:focus,textarea:focus{outline:2px solid #6fa83a;outline-offset
 .secundario-boton:hover{background:#f4efe1;color:#1f3818}
 .secundario{background:none;border:none;font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px;color:#c05a32;text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left;padding:8px 0;min-height:44px}
 
+.con-logo{display:flex;align-items:center;gap:14px}
+.con-logo img{width:96px;height:auto;flex-shrink:0}
+.con-logo small a{color:#c05a32}
+.mapa{border:1px solid #e4dac6;background:#efe8d8;aspect-ratio:4/3;max-height:420px;width:100%;margin-bottom:12px}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.ubic-botones{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:10px}
+.ubic-botones .boton{font-size:16px;cursor:pointer;border-radius:0;width:100%;text-align:left}
+.link-ubic{word-break:break-all}
 footer{background:#1f3818;padding:32px 20px 40px}
 footer .col{display:flex;flex-direction:column;gap:12px}
 footer .marca{display:flex;align-items:center;gap:14px}
@@ -134,7 +142,7 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
         </div>
         <div class="dato">
           <dt>Nos recibe</dt>
-          <dd>Cooperativa Gallo Rojo<small>La ubicación aparece al completar la inscripción.</small></dd>
+          <dd class="con-logo"><img src="gallo-rojo.png" width="96" height="120" alt="Gallo Rojo, pollos de granja"><span><small><a href="#como-llegar">Ver cómo llegar</a></small></span></dd>
         </div>
         <div class="dato">
           <dt>Colaboración solidaria</dt>
@@ -145,6 +153,21 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
           <dd>Hasta el miércoles 11 de noviembre<small>Nos sirve para preparar los materiales.</small></dd>
         </div>
       </dl>
+    </div>
+  </section>
+
+  <section id="como-llegar" aria-labelledby="llegar-t">
+    <div class="col">
+      <p class="etiqueta">Cómo llegar</p>
+      <h2 id="llegar-t">Nos recibe la Cooperativa Gallo Rojo</h2>
+      <div class="mapa">
+        <iframe src="https://maps.google.com/maps?q=-31.524791,-64.226822&amp;z=16&amp;output=embed" title="Mapa con la ubicación de la Cooperativa Gallo Rojo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="ubic-botones">
+        <a class="boton" href="https://maps.app.goo.gl/j3PDvnUTBMbRaqwHA" target="_blank" rel="noopener"><span>Abrir en Google Maps</span><i aria-hidden="true">↗</i></a>
+        <button class="boton secundario-boton copiar" type="button" data-copiar="https://maps.app.goo.gl/j3PDvnUTBMbRaqwHA"><span>Copiar ubicación</span><i aria-hidden="true">⧉</i></button>
+      </div>
+      <p class="nota">Coordenadas: 31°31'29" S, 64°13'37" W · <span class="link-ubic">https://maps.app.goo.gl/j3PDvnUTBMbRaqwHA</span></p>
     </div>
   </section>
 
@@ -172,8 +195,8 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
           </label>
 
           <label class="campo">
-            <span>Mail <span class="opcional">— opcional</span></span>
-            <input id="f-mail" name="mail" type="email" autocomplete="email" inputmode="email">
+            <span>Mail</span>
+            <input id="f-mail" name="mail" type="email" required autocomplete="email" inputmode="email">
           </label>
 
           <label class="campo">
@@ -246,8 +269,10 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
         <div id="gracias" class="aviso" role="status" aria-live="polite" tabindex="-1">
           <p class="titulo">¡Listo! Tu inscripción quedó registrada.</p>
           <p>Nos vemos el <strong>sábado 14 de noviembre a las 14 h</strong> en la Cooperativa Gallo Rojo. Acá tenés la ubicación:</p>
-          <a id="ubicacion" class="boton" href="#" target="_blank" rel="noopener"><span>Ver la ubicación en el mapa</span><i aria-hidden="true">↗</i></a>
-          <p id="ubicacion-pendiente" style="display:none">La ubicación exacta la publicamos en esta página en los próximos días.</p>
+          <div class="ubic-botones">
+            <a class="boton" href="https://maps.app.goo.gl/j3PDvnUTBMbRaqwHA" target="_blank" rel="noopener"><span>Abrir en Google Maps</span><i aria-hidden="true">↗</i></a>
+            <button class="boton secundario-boton copiar" type="button" data-copiar="https://maps.app.goo.gl/j3PDvnUTBMbRaqwHA"><span>Copiar ubicación</span><i aria-hidden="true">⧉</i></button>
+          </div>
           <p>Mientras tanto, podés recorrer la cartilla de alimentación agroecológica.</p>
           <a class="boton secundario-boton" href="../#contenido"><span>Ir a la cartilla</span><i aria-hidden="true">→</i></a>
           <button id="otra" class="secundario" type="button">Inscribir a otra persona</button>
@@ -284,15 +309,23 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
   var EVENTO = 'Taller vivencial alimentos agroecológicos · 14/11/2026 · Cooperativa Gallo Rojo';
   // Cierre: fin del miércoles 11 de noviembre, hora de Córdoba.
   var CIERRE = new Date('2026-11-12T00:00:00-03:00');
-  // Link de Google Maps a la Cooperativa Gallo Rojo. Se muestra al completar la
-  // inscripción. Mientras esté vacío, se muestra un aviso en su lugar.
-  var UBICACION = '';
 
   var form = document.getElementById('form-inscripcion');
   var error = document.getElementById('f-error');
   var gracias = document.getElementById('gracias');
   var cerrado = document.getElementById('cerrado');
   var boton = document.getElementById('f-enviar');
+
+  document.querySelectorAll('.copiar').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var texto = b.getAttribute('data-copiar');
+      var etiqueta = b.querySelector('span');
+      var listo = function () { etiqueta.textContent = '¡Copiado!'; setTimeout(function () { etiqueta.textContent = 'Copiar ubicación'; }, 2000); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(texto).then(listo, function () { window.prompt('Copiá la ubicación:', texto); });
+      } else { window.prompt('Copiá la ubicación:', texto); }
+    });
+  });
 
   if (Date.now() >= CIERRE.getTime()) {
     form.style.display = 'none';
@@ -376,7 +409,7 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
 
     revisar('f-nombre', !nombre, 'nombre y apellido');
     revisar('f-whatsapp', whatsapp.replace(/\D/g, '').length < 8, 'WhatsApp');
-    revisar('f-mail', mail !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail), 'un mail válido');
+    revisar('f-mail', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail), 'un mail válido');
     revisar('f-localidad', !localidad, 'localidad');
     revisar('f-provincia', !provincia, 'provincia');
     if (!productor) {
@@ -416,9 +449,6 @@ footer .flecha{color:#9fce5f;font-size:.85em;margin-left:1px}
 
     form.reset();
     form.style.display = 'none';
-    var enlace = document.getElementById('ubicacion');
-    if (UBICACION) { enlace.href = UBICACION; enlace.style.display = 'flex'; document.getElementById('ubicacion-pendiente').style.display = 'none'; }
-    else { enlace.style.display = 'none'; document.getElementById('ubicacion-pendiente').style.display = 'block'; }
     gracias.style.display = 'flex';
     gracias.focus();
     gracias.scrollIntoView({ behavior: 'smooth', block: 'center' });
